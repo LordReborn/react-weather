@@ -37,19 +37,21 @@ const CityListItem = React.memo(function CityListItem({
   );
 });
 
-const renderCityAndCountry =
-  (eventOnClickCity) => (cityAndCountry, weather) => {
-    const { city, countryCode } = cityAndCountry;
+const renderCityAndCountry = (eventOnClickCity) => (
+  cityAndCountry,
+  weather
+) => {
+  const { city, countryCode } = cityAndCountry;
 
-    return (
-      <CityListItem
-        key={getCityCode(city, countryCode)}
-        eventOnClickCity={eventOnClickCity}
-        weather={weather}
-        {...cityAndCountry}
-      />
-    );
-  };
+  return (
+    <CityListItem
+      key={getCityCode(city, countryCode)}
+      eventOnClickCity={eventOnClickCity}
+      weather={weather}
+      {...cityAndCountry}
+    />
+  );
+};
 
 const CityList = ({ cities, onClickCity }) => {
   const actions = useWeatherDispatchContext();

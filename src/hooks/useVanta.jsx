@@ -1,26 +1,28 @@
-import { useRef, useEffect, useState } from 'react'
-import Clouds from 'vanta/dist/vanta.clouds.min'
-import * as THREE from 'three'
+import { useRef, useEffect, useState } from "react";
+import Clouds from "vanta/dist/vanta.clouds.min";
+import * as THREE from "three";
 
 const useVanta = () => {
-    const myRefDiv = useRef(null) 
-    const [vanta, setVanta] = useState(0) 
+  const myRefDiv = useRef(null);
+  const [vanta, setVanta] = useState(0);
 
-    useEffect(() => {
-        if (!vanta) {
-            setVanta(Clouds({
-                THREE,
-                el: myRefDiv.current
-            })) 
-        }
-        return () => {
-            if (vanta) {
-                vanta.destroy()
-            }
-        }
-    }, [vanta])
+  useEffect(() => {
+    if (!vanta) {
+      setVanta(
+        Clouds({
+          THREE,
+          el: myRefDiv.current,
+        })
+      );
+    }
+    return () => {
+      if (vanta) {
+        vanta.destroy();
+      }
+    };
+  }, [vanta]);
 
-    return myRefDiv
-}
+  return myRefDiv;
+};
 
-export default useVanta
+export default useVanta;
